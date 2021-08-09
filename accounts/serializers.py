@@ -128,7 +128,7 @@ class ReportCardSerializer(serializers.Serializer):
 
         if not Student.objects.filter(roll_number=roll_number).exists():
             raise serializers.ValidationError(
-                "Please enter valid Roll Number"
+                "Student with this Roll Number not exists"
             )
 
         if not StudentMark.objects.filter(student=Student.objects.get(roll_number=roll_number)).exists():
@@ -154,7 +154,7 @@ class CardIdStatusSerializer(serializers.Serializer):
 
         if not ReportCardID.objects.filter(report_id=report_id).exists():
             raise serializers.ValidationError(
-                "Please enter valid Report Tracking Id"
+                "Tracking Id does not exist"
             )
 
         return data
